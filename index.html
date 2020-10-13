@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Formatter, a convert case site.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+</head>
+<body>
+    <div class="all">
+        <!--HEAD-->
+        <div class="head">
+            <h1 type="application/xml" style="color: white;padding: 0px; position: absolute;top: 0%;left: 5%; ">Text Formatter</h1>
+            <button class="no_background" id="config"><i class="fa fa-cog" aria-hidden="true"></i></button>
+        </div>
+        <div class="rest">
+            <!--TEXT-->
+            <button onclick="erase()" class="button" id="erase">Erase Text</button>
+            <button onclick="paste()" class="button" id="paste">Paste</button>
+            <button onclick="copy()" class="button" id="copy" onmouseout="hide('copied')">Copy</button>
+            <div id="copied">
+                <i class="fa fa-check" style="color: green;position: absolute;top: 30%; left: 5%; font-size: 20px;" aria-hidden="true"></i>
+                <p style="position: absolute;top: 0%; left: 20%;">Your text has been copied!!!</p>
+            </div>
+            <textarea class="text" id="txt" onclick="clear_txt()" onchange="define_counters(this.value)">Type your text!!!</textarea>
+            <button class="counter" id="word"><p>Words: 3</p></button>
+            <button class="counter" id="char"><p>Chars: 15</p></button>
+            <!--OPTIONS-->
+            <button class="button" id="correct" onclick="correct()">Correct textual errors</button>
+            <button class="counter" id="title" style="top: 40%; left: 10%; background-color: white; color: black;"><p>Options</p></button>
+            <button class="button" id="upper" onclick="upper()">UPPERCASE</button>
+            <button class="button" id="lower" onclick="lower()">lowercase</button>
+            <button class="button" id="cw" onclick="cw()">Capitalize Words</button>
+            <button class="button" id="cp" onclick="cp()">Capitalize phrases</button>
+            <button class="button" id="reverse" onclick="revers()">Reverse</button>
+            <div id="replace">
+                <p style="position: absolute; left: 1%; top: 10%;">Replace</p>
+                <input id="this" type="text">
+                <p style="position: absolute; left: 50%; top: 10%;">for</p>
+                <input id="for" type="text">
+            </div>
+            <button class="button" id="replace_button" onclick="replace(document.getElementById('this').value, document.getElementById('for').value)">Replace</button>
+            <button class="button" id="AO" onclick="AO()">Advanced Options <i class="fa fa-sort-desc" id="ok" aria-hidden="true"></i></button>
+            <div class="ao_estructure" id="ao_display">
+                <p style="position: absolute;top: 5%;left: 1%;">Font size:</p>
+                <input class="ex" id="size" style="width: 10%;" max="108" min="1" type="number" value="12" onchange="font_size(value)">
+                <p style="position: absolute;top: 25%; left: 1%;">Font Family:</p>
+                <select class="ex" id="family" onchange="font_family(value)">
+                    <option style="font-family: arial;" value="arial">arial</option>
+                    <option style="font-family: calibri;" value="calibri">calibri</option>
+                    <option style="font-family: cursive;" value="cursive">cursive</option>
+                    <option style="font-family: fantasy;" value="fantasy">fantasy</option>
+                    <option style="font-family: impact;" value="impact">impact</option>
+                    <option style="font-family: times;" value="times">times</option>
+                </select>
+                <p style="position: absolute;top: 45%; left: 1%;">Other:</p>
+                <select class="ex" id="other" onchange="other(value)">
+                    <option></option>
+                    <option style="font-family: arial;" value="Aa">UpPeRcAsE lOwErCaSe</option>
+                    <option style="font-family: calibri;" value="aA">uPpErCaSe LoWeRcAsE</option>
+                </select>
+            </div>
+            <!--ABOUT-->
+            <div id="about" class="about_">
+                <p>Welcome to my first site, if you have a tip for me send a email to my email address(98hundred.inc@gmail.com). Thank you.</p>
+            </div>
+        </div>
+    </div>
+    <script src="JS/script.js"></script>
+</body>
+</html>
